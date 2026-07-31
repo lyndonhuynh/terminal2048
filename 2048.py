@@ -1,4 +1,5 @@
 import random
+import sys
 
 
 def draw_grid(grid):
@@ -200,7 +201,7 @@ def play_turn(grid):
 
     spawn_tile(grid)
     print('\n'*50)
-    print("WASD to move the tiles. (W - UP, A - LEFT, S - DOWN, D - RIGHT)")
+    print("WASD to move the tiles. (W - UP, A - LEFT, S - DOWN, D - RIGHT), type 'P' to exit.")
     draw_grid(grid)
 
     directionDict = {"w": 0, "a": 1, "s": 2, "d": 3}
@@ -218,6 +219,8 @@ def play_turn(grid):
             direction = input("")
             if direction.lower() in directionDict:
                 break
+            elif direction.lower() == 'p':
+                sys.exit()
             else:
                 print("Only enter w a s or d.")
 
